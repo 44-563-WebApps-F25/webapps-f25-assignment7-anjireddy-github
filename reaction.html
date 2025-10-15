@@ -36,23 +36,48 @@
   </div>
   
   <script> 
-  // Variable to record when react button is pressed
   var myTime = undefined;
   
   function recordReact() {
     myTime = Date.now();
     console.log("React button pressed at: " + myTime);
+    document.getElementById("target").innerHTML = "Reaction recorded! Waiting for results...";
   }
   
-  // Set the onclick property of the react button
+  function startTime() {
+    myTime = undefined;
+    
+    document.getElementById("target").innerHTML = "Get ready... Click 'React Now' when countdown reaches 3!";
+    
+    for (let i = 0; i <= 3; i++) {
+      setTimeout(function() {
+        document.getElementById("countdown").innerHTML = i;
+        if (i === 3) {
+          document.getElementById("target").innerHTML = "NOW! Click React Now!";
+        }
+      }, (3-i) * 1000);
+    }
+    
+    setTimeout(function() {
+      if (myTime === undefined) {
+        document.getElementById("target").innerHTML = "Too Slow";
+      } else {
+        var buttonTime = Date.now();
+        var elapsed = buttonTime - myTime;
+        document.getElementById("target").innerHTML = "Time was " + elapsed + " milliseconds";
+      }
+    }, 3000);
+  }
+  
   document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('button');
-    const startButton = buttons[0]; // First button (Start Timer)
-    const reactButton = buttons[1]; // Second button (React Now)
-    
+    const startButton = buttons[0];
+    const reactButton = buttons[1];
+
+    startButton.onclick = startTime;
     reactButton.onclick = recordReact;
     
-    console.log("Reaction timer initialized. Click 'React Now' to test time recording.");
+    console.log("Reaction timer initialized. Click 'Start Timer' to begin, then 'React Now' when countdown reaches 0.");
   });
   </script>
 
