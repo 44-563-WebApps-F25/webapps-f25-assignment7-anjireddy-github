@@ -104,8 +104,9 @@ button:hover {
 			}
 			
 			if (!itemRemoved) {
-				console.log("No duplicates found. Removing first item: " + listyItems[0].innerHTML)
-				listyItems[0].remove()
+				let randomIndex = Math.floor(Math.random() * listyItems.length);
+				console.log("No duplicates found. Removing random item at index " + randomIndex + ": " + listyItems[randomIndex].innerHTML);
+				listyItems[randomIndex].remove();
 			}
 		}
 

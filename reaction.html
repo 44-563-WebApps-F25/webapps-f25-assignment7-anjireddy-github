@@ -47,17 +47,22 @@
   function startTime() {
     myTime = undefined;
     
-    document.getElementById("target").innerHTML = "Get ready... Click 'React Now' when countdown reaches 3!";
+    var countdownDuration = Math.floor(Math.random() * 9) + 2; // Random 2-10
+    var countdownEnd = countdownDuration;
     
-    for (let i = 0; i <= 3; i++) {
+    document.getElementById("target").innerHTML = "Get ready... Click 'React Now' when countdown reaches " + countdownEnd + "!";
+    console.log("Random countdown duration: " + countdownDuration + " seconds");
+    
+    for (let i = 0; i <= countdownEnd; i++) {
       setTimeout(function() {
         document.getElementById("countdown").innerHTML = i;
-        if (i === 3) {
+        if (i === countdownEnd) {
           document.getElementById("target").innerHTML = "NOW! Click React Now!";
         }
-      }, (3-i) * 1000);
+      }, (countdownEnd-i) * 1000);
     }
     
+    // Check results after the random countdown duration
     setTimeout(function() {
       if (myTime === undefined) {
         document.getElementById("target").innerHTML = "Too Slow";
@@ -66,7 +71,7 @@
         var elapsed = buttonTime - myTime;
         document.getElementById("target").innerHTML = "Time was " + elapsed + " milliseconds";
       }
-    }, 3000);
+    }, countdownDuration * 1000);
   }
   
   document.addEventListener('DOMContentLoaded', function() {

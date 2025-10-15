@@ -165,6 +165,11 @@
           </div>
         </div>
 
+        <!-- New Game Button -->
+        <div class="game-info text-center mt-3">
+          <button class="btn btn-warning btn-lg" onclick="newGame()">🎮 New Game</button>
+        </div>
+
         <!-- Game Field -->
         <div class="game-field">
           <h5 class="text-center mb-4">🏜️ Treasure Hunt Field (5x5)</h5>
@@ -229,7 +234,24 @@
     ];
     
     var clickCount = 0;
-    var treasureLocation = 18;
+    var treasureLocation = Math.floor(Math.random() * 25);
+
+    function newGame() {
+      clickCount = 0;
+      
+      treasureLocation = Math.floor(Math.random() * 25);
+      
+      for (let i = 0; i < 25; i++) {
+        document.getElementById(ids[i]).src = "images/cactus.jpg";
+        document.getElementById(ids[i]).alt = "Cactus";
+      }
+      
+      document.getElementById("locations").innerHTML = "Number of locations checked is zero.";
+      document.getElementById("score").innerHTML = "Score is zero.";
+      document.getElementById("distance").innerHTML = "Distance will appear here.";
+      
+      console.log("New game started! Treasure location: " + treasureLocation);
+    }
 
     function makeGuess(position) {
       var imageId = ids[position];
