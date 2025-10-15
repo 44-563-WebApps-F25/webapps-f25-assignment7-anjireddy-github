@@ -71,8 +71,9 @@ button:hover {
 		  <div class="listy">row item 3</div>  
 		</div>
 	
-	<p> Press the button to create a new element with text from the input and add it to the container.
+	<p> Press the button to create a new element with text from the input and add it to the container. List is limited to 10 items.
 		</p>
+		<p id="itemCount">Items in list: 3</p>
 		<button onclick="makeNewDiv()">Add One</button>	
 </body>
 <script>
@@ -88,10 +89,40 @@ button:hover {
 		
 		element.style.color = "orange"
 
+		let listyItems = document.getElementsByClassName("listy")
+		
+		if (listyItems.length > 9) {
+			let itemRemoved = false
+			
+			for (let item of listyItems) {
+				if (item.innerHTML === inputValue) {
+					console.log("Removing duplicate item: " + item.innerHTML)
+					item.remove()
+					itemRemoved = true
+					break  /* Remove only one duplicate */
+				}
+			}
+			
+			if (!itemRemoved) {
+				console.log("No duplicates found. Removing first item: " + listyItems[0].innerHTML)
+				listyItems[0].remove()
+			}
+		}
+
+		/* Now append the new element */
 		let container = document.getElementById('target')
 		container.appendChild(element)
 		
+		/* Update the item counter */
+		updateItemCount()
+		
 		inputElement.value = ""
+	}
+	
+	function updateItemCount() {
+		let listyItems = document.getElementsByClassName("listy")
+		let counter = document.getElementById('itemCount')
+		counter.innerHTML = "Items in list: " + listyItems.length
 	}
 </script>
 </html>	
