@@ -133,16 +133,22 @@
 
         <!-- Game Stats -->
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="game-info score-section">
               <h6>📍 Exploration Progress</h6>
               <p id="locations">Number of locations checked is zero.</p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="game-info score-section">
               <h6>💰 Treasure Score</h6>
               <p id="score">Score is zero.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="game-info score-section">
+              <h6>🎯 Distance to Treasure</h6>
+              <p id="distance">Distance will appear here.</p>
             </div>
           </div>
         </div>
@@ -161,65 +167,105 @@
 
         <!-- Game Field -->
         <div class="game-field">
-          <h5 class="text-center mb-4">🏜️ Treasure Hunt Field</h5>
+          <h5 class="text-center mb-4">🏜️ Treasure Hunt Field (5x5)</h5>
           
-          <!-- Row 1 -->
+          <!-- Row 1 (positions 0-4) -->
           <div class="game-row">
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
+            <div class="location"><img id="img0" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(0)"></div>
+            <div class="location"><img id="img1" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(1)"></div>
+            <div class="location"><img id="img2" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(2)"></div>
+            <div class="location"><img id="img3" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(3)"></div>
+            <div class="location"><img id="img4" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(4)"></div>
           </div>
           
-          <!-- Row 2 -->
+          <!-- Row 2 (positions 5-9) -->
           <div class="game-row">
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
+            <div class="location"><img id="img5" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(5)"></div>
+            <div class="location"><img id="img6" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(6)"></div>
+            <div class="location"><img id="img7" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(7)"></div>
+            <div class="location"><img id="img8" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(8)"></div>
+            <div class="location"><img id="img9" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(9)"></div>
           </div>
           
-          <!-- Row 3 -->
+          <!-- Row 3 (positions 10-14) -->
           <div class="game-row">
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
+            <div class="location"><img id="img10" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(10)"></div>
+            <div class="location"><img id="img11" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(11)"></div>
+            <div class="location"><img id="img12" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(12)"></div>
+            <div class="location"><img id="img13" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(13)"></div>
+            <div class="location"><img id="img14" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(14)"></div>
           </div>
           
-          <!-- Row 4 -->
+          <!-- Row 4 (positions 15-19) -->
           <div class="game-row">
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
+            <div class="location"><img id="img15" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(15)"></div>
+            <div class="location"><img id="img16" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(16)"></div>
+            <div class="location"><img id="img17" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(17)"></div>
+            <div class="location"><img id="img18" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(18)"></div>
+            <div class="location"><img id="img19" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(19)"></div>
           </div>
           
-          <!-- Row 5 -->
+          <!-- Row 5 (positions 20-24) -->
           <div class="game-row">
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
-            <div class="location"><img src="images/cactus.jpg" alt="Cactus"></div>
+            <div class="location"><img id="img20" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(20)"></div>
+            <div class="location"><img id="img21" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(21)"></div>
+            <div class="location"><img id="img22" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(22)"></div>
+            <div class="location"><img id="img23" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(23)"></div>
+            <div class="location"><img id="img24" src="images/cactus.jpg" alt="Cactus" onclick="makeGuess(24)"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    // Game variables
+    var ids = [
+      "img0", "img1", "img2", "img3", "img4",
+      "img5", "img6", "img7", "img8", "img9",
+      "img10", "img11", "img12", "img13", "img14",
+      "img15", "img16", "img17", "img18", "img19",
+      "img20", "img21", "img22", "img23", "img24"
+    ];
+    
+    var clickCount = 0;
+    var treasureLocation = 18;
+
+    function makeGuess(position) {
+      var imageId = ids[position];
+      
+      var imageElement = document.getElementById(imageId);
+      
+      if (position === treasureLocation) {
+        imageElement.src = "images/gold bar.jpg";
+        imageElement.alt = "Gold Bar - Treasure Found!";
+        document.getElementById("score").innerHTML = "You found the treasure! 🎉";
+      } else {
+        var notTreasureImages = ["images/snake.jpeg", "images/silver coin.jpg", "images/rabbit.jpg"];
+        var randomImage = notTreasureImages[Math.floor(Math.random() * notTreasureImages.length)];
+        imageElement.src = randomImage;
+        imageElement.alt = "Not treasure";
+      }
+      
+      clickCount++;
+      
+      document.getElementById("locations").innerHTML = "Number of locations checked is " + clickCount + ".";
+      
+      var dist = distance(position, treasureLocation);
+      document.getElementById("distance").innerHTML = "Distance to treasure: " + dist + " steps.";
+    }
+
+    function distance(pos1, pos2) {
+      var row1 = Math.floor(pos1 / 5);
+      var col1 = pos1 % 5;
+      var row2 = Math.floor(pos2 / 5);
+      var col2 = pos2 % 5;
+      
+      var rowDistance = Math.abs(row1 - row2);
+      var colDistance = Math.abs(col1 - col2);
+      
+      return rowDistance + colDistance;
+    }
+  </script>
 </body>
 </html>
